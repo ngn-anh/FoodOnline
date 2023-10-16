@@ -2,7 +2,7 @@ from django.http import HttpResponse,JsonResponse
 from django.shortcuts import get_object_or_404, render
 from marketplace.models import Cart
 from menu.models import Category, FoodItem
-from django.db.models import Prefetch
+from django.db.models import Prefetch,Q
 from .context_processors import get_cart_counter,get_cart_amounts
 from django.contrib.auth.decorators import login_required
 
@@ -105,3 +105,16 @@ def delete_cart(request,cart_id):
     else:
       return JsonResponse({'status':'Failed','message':'Invalid request!'})
 
+
+def search(request):
+  keyword=request.GET['keyword']
+  # get vendor ids that has the food item the user is looking for
+  fetch_vendors_by_fooditems=FoodItem.objects.filter(food_title__icontains=keyword,is_available=True).values_list('vendor',flat=True)
+
+  vendors=Vendor.objects.filter(Q(id__in=fetch_vendors_by_fooditems) or Q(vendor_name__icontains=keyword,is_approved=True,user__is_active=True))
+  vendor_count=vendors.count()
+  context={
+    'vendors':vendors,
+    'vendor_count':vendor_count
+  }
+  return render(request,'marketplace/listings.html',context)
