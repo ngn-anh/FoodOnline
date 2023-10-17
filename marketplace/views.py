@@ -1,3 +1,4 @@
+from datetime import date,datetime
 from django.http import HttpResponse,JsonResponse
 from django.shortcuts import get_object_or_404, render
 from marketplace.models import Cart
@@ -6,7 +7,7 @@ from django.db.models import Prefetch,Q
 from .context_processors import get_cart_counter,get_cart_amounts
 from django.contrib.auth.decorators import login_required
 
-from vendor.models import Vendor
+from vendor.models import OpeningHour, Vendor
 
 def marketplace(request):
   vendors=Vendor.objects.filter(is_approved=True,user__is_active=True)
@@ -25,6 +26,26 @@ def vendor_detail(request,vendor_slug):
     queryset=FoodItem.objects.filter(is_available=True))
     
   )
+
+  opening_hours=OpeningHour.objects.filter(vendor=vendor).order_by('day','-from_hour')
+
+  # Check current day's opening hours
+  today_date=date.today()
+  today=today_date.isoweekday()
+  current_opening_hours=OpeningHour.objects.filter(vendor=vendor,day=today)
+  now=datetime.now()
+  current_time=now.strftime("%H:%M:%S")
+
+  is_open=None
+  for i in current_opening_hours:
+    start=str(datetime.strptime(i.from_hour,"%I:%M %p").time())
+    end=str(datetime.strptime(i.to_hour,"%I:%M %p").time())
+
+    if current_time > start and current_time< end:
+      is_open=True
+    else:
+      is_open=False
+
   if request.user.is_authenticated:
     cart_items=Cart.objects.filter(user=request.user)
   else:
@@ -32,8 +53,12 @@ def vendor_detail(request,vendor_slug):
   context={
     'vendor':vendor,
     'categories':categories,
-    'cart_items':cart_items
+    'cart_items':cart_items,
+    'opening_hours':opening_hours,
+    'current_opening_hours':current_opening_hours,
+    'is_open':is_open
   }
+
   return render(request,'marketplace/vendor_detail.html',context)
 
 
@@ -111,7 +136,7 @@ def search(request):
   # get vendor ids that has the food item the user is looking for
   fetch_vendors_by_fooditems=FoodItem.objects.filter(food_title__icontains=keyword,is_available=True).values_list('vendor',flat=True)
 
-  vendors=Vendor.objects.filter(Q(id__in=fetch_vendors_by_fooditems) or Q(vendor_name__icontains=keyword,is_approved=True,user__is_active=True))
+  vendors=Vendor.objects.filter(Q(id__in=fetch_vendors_by_fooditems) | Q(vendor_name__icontains=keyword,is_approved=True,user__is_active=True))
   vendor_count=vendors.count()
   context={
     'vendors':vendors,
