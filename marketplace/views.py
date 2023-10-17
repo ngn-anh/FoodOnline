@@ -43,6 +43,7 @@ def vendor_detail(request,vendor_slug):
 
     if current_time > start and current_time< end:
       is_open=True
+      break
     else:
       is_open=False
 
