@@ -26,6 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
+
 ALLOWED_HOSTS = []
 
 
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'vendor',
     'menu',
     'marketplace',
-    'customers'
+    'customers',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +75,7 @@ TEMPLATES = [
                 'marketplace.context_processors.get_cart_counter',
                 'marketplace.context_processors.get_cart_amounts',
                 'accounts.context_processors.get_user_profile',
+                'accounts.context_processors.get_paypal_client_id',
             ],
         },
     },
@@ -157,3 +160,6 @@ EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS=True
 
 GOOGLE_API_KEY=''
+
+PAYPAL_CLIENT_ID=config('PAYPAL_CLIENT_ID')
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
