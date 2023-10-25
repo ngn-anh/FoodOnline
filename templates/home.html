@@ -1,52 +1,105 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <!-- Main Section Start -->
 <div class="main-section">
+  {% comment %}
+  <div id="modal-container">
+    <div class="modal" id="modal-demo">
+      <div class="modal-header">
+        <button id="btn-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="left">
+          <h4>NEWSLETTER!</h4>
+          <p class="sale">up to 70% off</p>
+          <p class="special">FOOD</p>
+          <p class="enter-email">ENTER YOUR EMAIL HERE</p>
+          <p class="sign-up"><a>SIGN UP</a></p>
+        </div>
+        <div class="right">
+          <img
+            src="http://demo.kalatheme.com/html_fastfood/assets/images/newsletter-banner.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endcomment %}
   <!-- Home Pages Elements Strat -->
   <!-- Main Search Start -->
+
   <div
     class="page-section nopadding cs-nomargin"
     style="
-      padding-top: 200px;
+      padding-top: 150px;
       padding-bottom: 150px;
       margin-bottom: 0px;
-      background: url('{% static 'extra-images/bg-image1.jpg' %}') no-repeat
-        center / cover;
+      background: url('https://cdn.shopify.com/s/files/1/2487/3424/files/1_83ead4e7-aea5-4e9d-9434-4955aa4586dc.jpg')
+        no-repeat center / cover;
     "
   >
-    <div class="container">
-      <div class="row">
+    <div
+      class="container"
+      style="
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        margin-top: 50px !important;
+      "
+    >
+      <div class="row" style="margin-left: -150px !important">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="element-title">
+          <div class="element-title" style="text-align: center">
+            <img
+              src="http://demo.kalatheme.com/html_fastfood/assets/images/slideshow-caption-1.png"
+              alt="Picture"
+            />
+
             <h1
               style="
                 font-size: 40px;
-                color: #505050;
+                color: #fff;
                 text-transform: uppercase;
                 line-height: 50px;
                 margin-bottom: 25px;
+                margin-top: 40px;
                 text-align: center;
               "
+              class="text-white"
             >
-              We are in the business of food<br />our restaurants do
+              We <span class="text-warning">are</span> in the business of
+              <span class="text-warning">food</span><br />our
+              <span class="text-warning">restaurants</span> do
             </h1>
-            <p
-              style="
-                font-size: 18px;
-                letter-spacing: 1px;
-                color: #505050;
-                text-align: center;
-              "
+            <div
+              class="main-search fancy bg-holder col-lg-6 col-md-6 col-sm-6 col-xs-6"
             >
-              Ridiculus sociosqu cursus neque cursus curae ante scelerisque
-              vehicula.
-            </p>
+              <form action="{% url 'search' %}" method="GET">
+                <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <div class="field-holder">
+                      <input
+                        type="text"
+                        name="keyword"
+                        placeholder="Resturant name or food name"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                    <div class="field-holder">
+                      <input type="submit" value="Search" />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        {% comment %}
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
           <div class="main-search fancy bg-holder">
             <form action="{% url 'search' %}" method="GET">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                   <div class="field-holder">
                     <input
                       type="text"
@@ -56,7 +109,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
                   <div class="field-holder">
                     <input type="submit" value="Search" />
                   </div>
@@ -65,6 +118,7 @@
             </form>
           </div>
         </div>
+        {% endcomment %}
       </div>
     </div>
   </div>
@@ -72,131 +126,334 @@
 
   <!-- Top Restarurants Section Start -->
   <div
-    class="page-section nopadding cs-nomargin"
+    class="test"
     style="
-      margin-top: 0px;
-      padding-top: 60px;
-      padding-bottom: 0px;
-      margin-bottom: 0px;
-      background: #ffffff;
+      background-image: url('http://demo.kalatheme.com/html_fastfood/assets/images/bg_footer.png') !important;
     "
   >
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="element-title align-left">
-            <h2>Top Restaurants</h2>
-            <p>Explore restaurants, bars, and cafés by locality</p>
+    <div
+      class="page-section nopadding cs-nomargin"
+      style="
+        margin-top: 0px;
+        padding-top: 60px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+      "
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="element-title align-center">
+              <h1 class="title-h1">Top Restaurants</h1>
+            </div>
           </div>
-        </div>
-        <div
-          class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-          style="padding-right: 0 !important; padding-left: 0 !important"
-        >
-          <div class="company-logo">
-            <ul>
-              {% for vendor in vendors %}
-              <li class="has-border">
-                <figure>
+          <div
+            class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+            style="padding-right: 0 !important; padding-left: 0 !important"
+          >
+            <div class="company-logo">
+              <ul>
+                {% for vendor in vendors %}
+                <li class="mx-3" style="width: 260px">
                   {% if vendor.user_profile.profile_picture %}
                   <a href="#"
                     ><img
                       src="{{vendor.user_profile.profile_picture.url }}"
-                      class="attachment-full size-full wp-post-image"
+                      class="attachment-full size-full wp-post-image image-scale"
                       alt=""
+                      width="260px"
+                      height="200px"
                   /></a>
                   {% else %}
                   <a href="#"
                     ><img
-                      src="{% static 'images/default-pprofile.png' %}"
-                      class="attachment-full size-full wp-post-image"
+                      src="{% static 'images/default-profile.png' %}"
+                      class="attachment-full size-full wp-post-image image-scale"
                       alt=""
+                      width="260"
+                      height="200px"
                   /></a>
                   {% endif %}
-                </figure>
-              </li>
-              {% endfor %}
-            </ul>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Top Restarurants Section End -->
-  <!-- Choose From Most Popular Listin Start -->
-  <div
-    class="page-section nopadding cs-nomargin"
-    style="
-      margin-top: 0px;
-      padding-top: 60px;
-      padding-bottom: 50px;
-      margin-bottom: 0px;
-      background: #ffffff;
-    "
-  >
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="element-title align-center">
-            <h2>Choose From Most Popular Restaurants</h2>
-            <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
-          </div>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="listing fancy">
-            <ul class="row">
-              {% for vendor in vendors %}
-              <li class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="list-post featured">
-                  <div class="img-holder">
-                    <figure>
-                      <a href="#">
+
+    <!-- Top Restarurants Section End -->
+    <!-- Choose From Most Popular Listin Start -->
+    <div
+      class="page-section nopadding cs-nomargin"
+      style="padding-top: 60px; padding-bottom: 50px; margin-top: 90px"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="element-title align-center">
+              <h1 class="title-h1">Choose Your Restaurants</h1>
+            </div>
+            <div class="type-food">
+              <div class="container-title">
+                <img
+                  src="http://demo.kalatheme.com/html_fastfood/assets/images/banner_product_1.jpg"
+                  width="1140px"
+                />
+                <h2 class="title-h2">. . . . .Fast Food. . . . .</h2>
+              </div>
+              <div class="listing fancy">
+                <ul class="row">
+                  {% for vendor in vendors_fast_food %}
+                  <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div
+                      class="img-holder container-image"
+                      style="text-align: center"
+                    >
+                      <a href="{% url 'vendor_detail'  vendor.vendor_slug %}">
                         {% if vendor.user_profile.profile_picture %}
                         <img
                           src="{{vendor.user_profile.profile_picture.url }}"
-                          class="img-thumb wp-post-image"
+                          class="img-thumb wp-post-image image-rotate"
                           alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%; border"
                         />
                         {% else %}
                         <img
-                          src="{% static 'images/default-pprofile.png' %}"
-                          class="img-thumb wp-post-image"
+                          src="{% static 'images/default-profile.png' %}"
+                          class="img-thumb wp-post-image image-rotate"
                           alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%"
                         />
                         {% endif %}
                       </a>
-                    </figure>
-                    {% if vendor.is_open %}
-                    <span class="restaurant-status open">
-                      <em class="bookmarkRibbon"></em>Open
-                    </span>
-                    {% else %}
-                    <span class="restaurant-status close">
-                      <em class="bookmarkRibbon"></em>Close
-                    </span>
-                    {% endif %}
-                  </div>
-                  <div class="text-holder">
-                    <div class="list-rating">
-                      <div class="rating-star">
-                        <span class="rating-box" style="width: 100%"></span>
-                      </div>
-                      <span class="reviews">(1)</span>
-                    </div>
-                    <div class="post-title">
-                      <h5>
-                        <a href="listing-detail.html">{{vendor}}</a>
-                      </h5>
-                    </div>
-                    {% if vendor.user_profile.address %}
-                    <span>{{vendor.user_profile.address}}</span>
-                    {% endif %}
-                  </div>
-                </div>
-              </li>
 
-              {% endfor %}
-            </ul>
+                      {% if vendor.is_open %}
+                      <span class="restaurant-status open">
+                        <em class="bookmarkRibbon"></em>Open
+                      </span>
+                      {% else %}
+                      <span class="restaurant-status close">
+                        <em class="bookmarkRibbon"></em>Close
+                      </span>
+                      {% endif %}
+                    </div>
+                    <div style="text-align: center; margin-top: 20px">
+                      <div>
+                        <h5>
+                          <a
+                            href="{% url 'vendor_detail'  vendor.vendor_slug %}"
+                            >{{vendor}}</a
+                          >
+                        </h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+
+            <div class="type-food">
+              <div class="container-title">
+                <img
+                  src="http://demo.kalatheme.com/html_fastfood/assets/images/banner_product_4.jpg"
+                  width="1140px"
+                />
+                <h2 class="title-h2">. . . . .Pizza. . . . .</h2>
+              </div>
+              <div class="listing fancy">
+                <ul class="row">
+                  {% for vendor in vendors_pizza %}
+                  <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div
+                      class="img-holder container-image"
+                      style="text-align: center"
+                    >
+                      <a href="{% url 'vendor_detail'  vendor.vendor_slug %}">
+                        {% if vendor.user_profile.profile_picture %}
+                        <img
+                          src="{{vendor.user_profile.profile_picture.url }}"
+                          class="img-thumb wp-post-image image-rotate"
+                          alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%; border"
+                        />
+                        {% else %}
+                        <img
+                          src="{% static 'images/default-profile.png' %}"
+                          class="img-thumb wp-post-image image-rotate"
+                          alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%"
+                        />
+                        {% endif %}
+                      </a>
+
+                      {% if vendor.is_open %}
+                      <span class="restaurant-status open">
+                        <em class="bookmarkRibbon"></em>Open
+                      </span>
+                      {% else %}
+                      <span class="restaurant-status close">
+                        <em class="bookmarkRibbon"></em>Close
+                      </span>
+                      {% endif %}
+                    </div>
+                    <div style="text-align: center; margin-top: 20px">
+                      <div>
+                        <h5>
+                          <a
+                            href="{% url 'vendor_detail'  vendor.vendor_slug %}"
+                            >{{vendor}}</a
+                          >
+                        </h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+
+            <div class="type-food">
+              <div class="container-title">
+                <img
+                  src="http://demo.kalatheme.com/html_fastfood/assets/images/banner_product_2.jpg"
+                  width="1140px"
+                />
+                <h2 class="title-h2">. . . . .Hamburger. . . . .</h2>
+              </div>
+              <div class="listing fancy">
+                <ul class="row">
+                  {% for vendor in vendors_hamburger %}
+                  <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div
+                      class="img-holder container-image"
+                      style="text-align: center"
+                    >
+                      <a href="{% url 'vendor_detail'  vendor.vendor_slug %}">
+                        {% if vendor.user_profile.profile_picture %}
+                        <img
+                          src="{{vendor.user_profile.profile_picture.url }}"
+                          class="img-thumb wp-post-image image-rotate"
+                          alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%; border"
+                        />
+                        {% else %}
+                        <img
+                          src="{% static 'images/default-profile.png' %}"
+                          class="img-thumb wp-post-image image-rotate"
+                          alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%"
+                        />
+                        {% endif %}
+                      </a>
+
+                      {% if vendor.is_open %}
+                      <span class="restaurant-status open">
+                        <em class="bookmarkRibbon"></em>Open
+                      </span>
+                      {% else %}
+                      <span class="restaurant-status close">
+                        <em class="bookmarkRibbon"></em>Close
+                      </span>
+                      {% endif %}
+                    </div>
+                    <div style="text-align: center; margin-top: 20px">
+                      <div>
+                        <h5>
+                          <a
+                            href="{% url 'vendor_detail'  vendor.vendor_slug %}"
+                            >{{vendor}}</a
+                          >
+                        </h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+
+            <div class="type-food">
+              <div class="container-title">
+                <img
+                  src="http://demo.kalatheme.com/html_fastfood/assets/images/banner_product_3.jpg"
+                  width="1140px"
+                />
+                <h2 class="title-h2">. . . . .Drink. . . . .</h2>
+              </div>
+              <div class="listing fancy">
+                <ul class="row">
+                  {% for vendor in vendors_drink %}
+                  <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div
+                      class="img-holder container-image"
+                      style="text-align: center"
+                    >
+                      <a href="{% url 'vendor_detail'  vendor.vendor_slug %}">
+                        {% if vendor.user_profile.profile_picture %}
+                        <img
+                          src="{{vendor.user_profile.profile_picture.url }}"
+                          class="img-thumb wp-post-image image-rotate"
+                          alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%; border"
+                        />
+                        {% else %}
+                        <img
+                          src="{% static 'images/default-profile.png' %}"
+                          class="img-thumb wp-post-image image-rotate"
+                          alt=""
+                          width="220px"
+                          height="220px"
+                          style="border-radius: 50%"
+                        />
+                        {% endif %}
+                      </a>
+
+                      {% if vendor.is_open %}
+                      <span class="restaurant-status open">
+                        <em class="bookmarkRibbon"></em>Open
+                      </span>
+                      {% else %}
+                      <span class="restaurant-status close">
+                        <em class="bookmarkRibbon"></em>Close
+                      </span>
+                      {% endif %}
+                    </div>
+                    <div style="text-align: center; margin-top: 20px">
+                      <div>
+                        <h5>
+                          <a
+                            href="{% url 'vendor_detail'  vendor.vendor_slug %}"
+                            >{{vendor}}</a
+                          >
+                        </h5>
+                      </div>
+                    </div>
+                  </li>
+
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -206,5 +463,51 @@
 
   <!-- Home Pages Elements End  -->
 </div>
+<div id="container-modal">
+  <div class="modal-na" id="modal-demo-na">
+    <div class="modal-header-na">
+      <button id="btn-close-na">
+        <i class="fa fa-times-circle-o fa-2x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="modal-body-na">
+      <div class="left">
+        <h4>NEWSLETTER!</h4>
+        <p class="sale">up to 70% off</p>
+        <p class="special">FOOD</p>
+        <p class="enter-email">ENTER YOUR EMAIL HERE</p>
+        <p class="sign-up">
+          <a class="sign-up" href="{% url 'registerUser' %}">SIGN UP</a>
+        </p>
+      </div>
+      <div class="right">
+        <img
+          src="http://demo.kalatheme.com/html_fastfood/assets/images/newsletter-banner.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const close = document.getElementById("btn-close-na");
+
+  const modal_container = document.getElementById("container-modal");
+  const modal_demo = document.getElementById("modal-demo-na");
+
+  window.addEventListener("load", () => {
+    modal_container.classList.add("show");
+  });
+  close.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
+  modal_container.addEventListener("click", (e) => {
+    if (!modal_demo.contains(e.target)) {
+      close.click();
+    }
+  });
+</script>
+
 <!-- Main Section End -->
+
 {% endblock %}

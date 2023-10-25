@@ -121,7 +121,12 @@
                       {% for food in category.fooditems.all %}
                       <li>
                         <div class="image-holder">
-                          <img src="{{food.image.url}}" alt="" />
+                          <img
+                            src="{{food.image.url}}"
+                            alt=""
+                            width="100px"
+                            height="60px"
+                          />
                         </div>
                         <div class="text-holder">
                           <h6>{{food}}</h6>

@@ -61,3 +61,206 @@ table > tbody > tr > td {
 .payment-method [type="radio"]:checked + img {
   outline: 2px solid #ff0000;
 }
+
+.test {
+  background-color: rgb(255, 244, 230);
+  padding: 90px 0;
+}
+
+.title-h1 {
+  text-align: center;
+  margin-bottom: 80px;
+  font-size: 72px !important;
+  font-family: "Playball", cursive !important;
+  line-height: 1em !important;
+  color: #000;
+  letter-spacing: 6px !important;
+}
+
+.title-h2 {
+  font-size: 60px !important;
+  color: #f3eade !important;
+  font-family: Playball !important;
+  margin: 0 auto !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-title {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px !important;
+  }
+}
+
+.container-image {
+  padding: 15px;
+  background-image: url("http://demo.kalatheme.com/html_fastfood/assets/images/round-border.png");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100%;
+  width: 250px !important;
+}
+
+.type-food {
+  margin-bottom: 150px;
+}
+
+.image-scale {
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.image-scale:hover {
+  transform: scale(1.2);
+}
+
+.image-rotate {
+  cursor: pointer;
+  transition: transform 7s;
+}
+
+.image-rotate:hover {
+  transform: rotate(360deg) translateZ(0);
+}
+
+#wrapper {
+  min-height: 100vh;
+}
+
+#container-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  display: none;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#container-modal.show {
+  display: block;
+  pointer-events: all;
+  z-index: 100;
+}
+
+.modal-na {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 900px !important;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 5s ease-in-out !important;
+  background-image: url("http://demo.kalatheme.com/html_fastfood/assets/images/bg-newsletter.jpg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+#container-modal.show .modal-na {
+  top: 100px;
+}
+
+.modal-header-na {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header-na h3 {
+  margin: 0;
+}
+
+.modal-header-na button#btn-close-na {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-body-na {
+  padding: 0px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sale {
+  background-color: #ffc03f;
+  color: #9d1414;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 5px;
+  line-height: 30px;
+  padding: 5px 70px !important;
+  margin-bottom: 5px !important;
+}
+
+.left h4 {
+  font-size: 40px !important;
+  color: white !important;
+  letter-spacing: 1px !important;
+  font-weight: 800px !important;
+  margin-bottom: 30px !important;
+  margin-top: 10px !important;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.special {
+  color: white !important;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 100px;
+  margin: 40px !important;
+  text-decoration: none;
+}
+
+.enter-email {
+  color: white;
+  padding: 7px 40px;
+  font-size: 16px;
+  border: 1px solid white;
+  margin: 10px 0 !important;
+}
+
+.sign-up {
+  color: white !important;
+  padding: 7px 40px;
+  font-size: 16px;
+  border: 1px solid black;
+  margin-top: 10px !important;
+  background-color: black;
+  cursor: pointer !important;
+}
+
+.modal-header-na {
+  position: relative;
+}
+
+.modal-header-na button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+}
