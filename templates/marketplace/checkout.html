@@ -89,7 +89,8 @@
                       {% for item in cart_items %}
                       <li id="cart-item-{{item.id}}">
                         <div class="image-holder">
-                          <img src="{{item.fooditem.image.url}}" alt="" />
+                          <img src="{{item.fooditem.image.url}}" alt=""  width="100"
+                            height="65" />
                         </div>
                         <div class="text-holder">
                           <h6>{{item.fooditem}}</h6>

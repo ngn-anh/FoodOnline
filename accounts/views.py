@@ -168,7 +168,8 @@ def myAccount(request):
 @user_passes_test(check_role_customer)
 def custDashboard(request):
    orders=Order.objects.filter(user=request.user,is_ordered=True)
-   orders_5=Order.objects.filter(user=request.user,is_ordered=True)[:5]
+   orders_recent =Order.objects.filter(user=request.user,is_ordered=True).order_by('-created_at')
+   orders_5=orders_recent[:5]
    context={
      'orders':orders,
      'orders_count':orders.count(),
